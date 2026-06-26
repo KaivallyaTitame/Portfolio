@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const roles = [
-  "Java Developer",
+  "Full Stack Developer",
   "Backend Engineer",
-  "MEAN Stack Developer",
   "AI Systems Builder",
-  "Freelance Developer",
+  "MEAN Stack Developer",
+  "Your Next Developer",
 ];
 
 export default function Hero() {
@@ -44,75 +45,114 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6 pt-20"
+      className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden"
     >
-      <div className="max-w-4xl text-center">
+      {/* Gradient orbs */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#38BDF8]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+
+      <div className="max-w-4xl text-center relative z-10">
         {/* Monospace label */}
-        <p className="font-[family-name:var(--font-jetbrains-mono)] text-[#38BDF8]/70 text-sm md:text-base mb-4">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="font-[family-name:var(--font-jetbrains-mono)] text-[#38BDF8]/70 text-sm md:text-base mb-4"
+        >
           {"> hello, world! I'm"}
-        </p>
+        </motion.p>
 
         {/* Big name */}
-        <h1 className="font-[family-name:var(--font-space-grotesk)] text-5xl md:text-7xl lg:text-[72px] font-bold text-white mb-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="font-[family-name:var(--font-space-grotesk)] text-5xl md:text-7xl lg:text-[72px] font-bold text-white mb-4"
+        >
           Kaivallya Titame
-        </h1>
+        </motion.h1>
 
         {/* Typing animation */}
-        <div className="h-12 md:h-14 flex items-center justify-center mb-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="h-12 md:h-14 flex items-center justify-center mb-6"
+        >
           <span className="font-[family-name:var(--font-space-grotesk)] text-2xl md:text-4xl font-semibold text-[#38BDF8]">
             {text}
           </span>
           <span className="w-[3px] h-8 md:h-10 bg-[#38BDF8] ml-1 animate-pulse" />
-        </div>
+        </motion.div>
 
         {/* Tagline */}
-        <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-          2026 B.Tech IT graduate from VIIT Pune. Building AI-powered systems and full-stack web apps. Available for placements and freelance projects.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed"
+        >
+          I build high-performance web apps, scalable APIs, and AI-powered automation tools. Let&apos;s bring your idea to life.
+        </motion.p>
 
         {/* Green badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 1 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-8"
+        >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <span className="text-green-400 text-sm font-medium">
-            Available · Immediate Joiner · Pune, India
+            Available for Freelance · Pune, India
           </span>
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4 justify-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+          className="flex flex-wrap gap-4 justify-center mb-12"
+        >
           <a
             href="#projects"
-            className="px-8 py-3 bg-[#38BDF8] text-[#08101F] font-semibold rounded-md hover:bg-[#38BDF8]/90 transition-colors"
+            className="px-8 py-3 bg-[#38BDF8] text-[#08101F] font-semibold rounded-md hover:bg-[#38BDF8]/90 hover:shadow-lg hover:shadow-[#38BDF8]/20 transition-all duration-300"
           >
-            View Projects
+            View My Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 border border-[#38BDF8] text-[#38BDF8] rounded-md hover:bg-[#38BDF8]/10 transition-colors"
+            className="px-8 py-3 border border-[#38BDF8] text-[#38BDF8] rounded-md hover:bg-[#38BDF8]/10 transition-all duration-300"
           >
-            Hire Me for Freelance
+            Start a Project
           </a>
-        </div>
+        </motion.div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-          <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.3 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto"
+        >
+          <div className="text-center p-4 rounded-lg bg-white/[0.02] border border-[#1A2E4A]/50">
+            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">6+</p>
+            <p className="text-gray-500 text-sm mt-1">Projects Delivered</p>
+          </div>
+          <div className="text-center p-4 rounded-lg bg-white/[0.02] border border-[#1A2E4A]/50">
             <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">6 mo</p>
             <p className="text-gray-500 text-sm mt-1">Industry Exp</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">6</p>
-            <p className="text-gray-500 text-sm mt-1">Projects</p>
+          <div className="text-center p-4 rounded-lg bg-white/[0.02] border border-[#1A2E4A]/50">
+            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">24h</p>
+            <p className="text-gray-500 text-sm mt-1">Response Time</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">8.0</p>
-            <p className="text-gray-500 text-sm mt-1">GPA</p>
+          <div className="text-center p-4 rounded-lg bg-white/[0.02] border border-[#1A2E4A]/50">
+            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">100%</p>
+            <p className="text-gray-500 text-sm mt-1">Client Focus</p>
           </div>
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-space-grotesk)]">130+</p>
-            <p className="text-gray-500 text-sm mt-1">DSA Problems</p>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

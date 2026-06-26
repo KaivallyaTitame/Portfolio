@@ -1,16 +1,25 @@
 "use client";
 
 import { portfolio } from "@/data/portfolio";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 bg-[#08101F]">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="py-24 px-6 bg-[#08101F] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500/3 rounded-full blur-3xl" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-4 mb-12"
+        >
           <span className="font-[family-name:var(--font-jetbrains-mono)] text-[#38BDF8] text-sm">03 / Experience</span>
           <div className="flex-1 h-px bg-[#1A2E4A]"></div>
-        </div>
+        </motion.div>
 
         {/* Timeline */}
         <div className="relative">
@@ -19,12 +28,19 @@ export default function Experience() {
 
           <div className="space-y-10">
             {portfolio.experience.map((exp, index) => (
-              <div key={index} className="relative pl-10">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="relative pl-10"
+              >
                 {/* Dot */}
                 <div className="absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-[#38BDF8] bg-[#08101F]" />
 
                 {/* Card */}
-                <div className="bg-[#0D1528] border border-[#1A2E4A] rounded-xl p-6 hover:border-[#38BDF8]/40 transition-colors">
+                <div className="bg-[#0D1528] border border-[#1A2E4A] rounded-xl p-6 hover:border-[#38BDF8]/40 transition-colors duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                     <div>
                       <h3 className="text-white font-semibold text-lg font-[family-name:var(--font-space-grotesk)]">
@@ -61,7 +77,7 @@ export default function Experience() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

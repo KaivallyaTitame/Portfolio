@@ -18,12 +18,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kaivallya Titame | Software Developer & Freelancer | Pune",
-  description: "2026 B.Tech IT graduate from VIIT Pune. Java, Spring Boot, Angular, MEAN Stack developer. 6 months at Qualys. Available for placements and freelance projects in Pune.",
-  keywords: ["Java Developer Pune", "Spring Boot Developer", "Angular Developer", "MEAN Stack Freelancer", "Software Developer Pune", "Kaivallya Titame"],
+  title: "Kaivallya Titame | Freelance Developer | Full Stack & AI | Pune",
+  description: "Freelance developer specializing in Java, Spring Boot, Angular, and MEAN Stack. Building web apps, APIs, and AI-powered tools. Based in Pune, India. Let's build something together.",
+  keywords: ["Freelance Developer Pune", "Java Developer", "Spring Boot Freelancer", "Angular Developer", "MEAN Stack Developer", "Full Stack Freelancer", "Kaivallya Titame"],
   openGraph: {
-    title: "Kaivallya Titame | Software Developer",
-    description: "Java, Spring Boot, Angular Developer. Qualys intern. Available for placements and freelance.",
+    title: "Kaivallya Titame | Freelance Developer",
+    description: "Full Stack & AI developer available for freelance projects. Java, Spring Boot, Angular, MEAN Stack.",
     url: "https://kaivallyatitame.vercel.app",
     type: "website",
   },

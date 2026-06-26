@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 
@@ -8,7 +9,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    subject: "Job Opportunity",
+    subject: "Freelance Project",
     message: "",
   });
 
@@ -22,23 +23,37 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#0D1528]">
-      <div className="max-w-5xl mx-auto">
+    <section id="contact" className="py-24 px-6 bg-[#0D1528] relative overflow-hidden">
+      {/* Gradient orb */}
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#38BDF8]/3 rounded-full blur-3xl" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-4 mb-12"
+        >
           <span className="font-[family-name:var(--font-jetbrains-mono)] text-[#38BDF8] text-sm">06 / Get In Touch</span>
           <div className="flex-1 h-px bg-[#1A2E4A]"></div>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white mb-4">
-              Open to Placements &amp; Freelance
+              Let&apos;s Build Something Together
             </h2>
             <p className="text-gray-400 leading-relaxed mb-8">
-              Based in {portfolio.location}. Available for immediate joining — whether it&apos;s a
-              full-time placement, internship, or a freelance project, I&apos;d love to hear from you.
+              Have a project in mind? Need a custom web app, API, or automation tool?
+              I&apos;m based in {portfolio.location} and ready to bring your ideas to life.
             </p>
 
             {/* Social links */}
@@ -86,10 +101,16 @@ export default function Contact() {
                 <span className="text-sm">WhatsApp</span>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right side: Form */}
-          <div className="bg-[#08101F] border border-[#1A2E4A] rounded-xl p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-[#08101F] border border-[#1A2E4A] rounded-xl p-6 hover:border-[#38BDF8]/20 transition-colors duration-300"
+          >
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-gray-400 text-sm mb-1.5">Name</label>
@@ -120,8 +141,9 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, subject: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-lg bg-[#0D1528] border border-[#1A2E4A] text-white text-sm focus:border-[#38BDF8] focus:outline-none transition-colors"
                 >
-                  <option value="Job Opportunity">Job Opportunity</option>
                   <option value="Freelance Project">Freelance Project</option>
+                  <option value="Web App Development">Web App Development</option>
+                  <option value="API Development">API Development</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -144,7 +166,7 @@ export default function Contact() {
               </button>
             </form>
             <p className="text-gray-500 text-xs text-center mt-4">Response within 24 hours</p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

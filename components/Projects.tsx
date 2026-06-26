@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { portfolio } from "@/data/portfolio";
 
 const filters = ["All", "Full Stack", "AI & Automation", "Systems"] as const;
@@ -14,13 +15,21 @@ export default function Projects() {
       : portfolio.projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="py-24 px-6 bg-[#0D1528]">
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="py-24 px-6 bg-[#0D1528] relative overflow-hidden">
+      <div className="absolute top-1/3 -right-20 w-80 h-80 bg-[#38BDF8]/3 rounded-full blur-3xl" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-4 mb-12"
+        >
           <span className="font-[family-name:var(--font-jetbrains-mono)] text-[#38BDF8] text-sm">04 / Projects</span>
           <div className="flex-1 h-px bg-[#1A2E4A]"></div>
-        </div>
+        </motion.div>
 
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-2 mb-10">
@@ -40,7 +49,15 @@ export default function Projects() {
         </div>
 
         {/* Project cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
           {filtered.map((project) => (
             <div
               key={project.name}
@@ -105,7 +122,8 @@ export default function Projects() {
               </div>
             </div>
           ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
